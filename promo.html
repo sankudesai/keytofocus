@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Video</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { overflow: hidden; }
+
+        #promo-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        #promo-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #skip-button {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        #skip-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="promo-container">
+        <video id="promo-video" autoplay muted>
+            <source src="Firefly make a promotion video of this image discribeing the name key to focus 590089.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="skip-button">Skip</button>
+    </div> 
+
+    <script>
+        const promoVideo = document.getElementById('promo-video');
+        const skipButton = document.getElementById('skip-button');
+
+        // Function to redirect to index.html
+        function goToMainPage() {
+            window.location.href = "home.html"; // Redirect to index.html
+        }
+
+        // Redirect when video ends
+        promoVideo.addEventListener('ended', goToMainPage);
+
+        // Redirect when user clicks "Skip"
+        skipButton.addEventListener('click', goToMainPage);
+    </script>
+
+</body>
+</html>
